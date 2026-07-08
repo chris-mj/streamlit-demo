@@ -51,11 +51,10 @@ if st.checkbox("Show message"):
    
 # Radio button
 gender = st.radio("Select Gender:", ['Male', 'Female'])
-st.success(f"Selected: {gender}")
-if gender == "Male":
-    st.write("You have chosen Male")
-else:
-    st.write("You have chosen Female")
+
+# Use the generate_greeting function instead of if/else
+# (We need the name variable too, so this will work with the text input below)
+
 
 # Practie 1
 # Selectbox - using a list variable instead of hardcoded values
@@ -101,7 +100,8 @@ else:
 
 # Slider
 level = st.slider("Choose a level", 1, 5)
-st.write(f"Selected level: {level}")
+st.write(f"Your level: {get_level_description(level)}")
+
 
 #practice 3
 # Text input with string processing
@@ -125,3 +125,10 @@ if st.button("Submit"):
             st.write(f"Your name reversed: {name[::-1]}")
             st.write(f"Starts with 'A': {name.upper().startswith('A')}")
 
+
+#practice 4
+# Text input
+name = st.text_input("Enter your name", "Type here...")
+if st.button("Submit"):
+    # Call the function with name and gender as arguments
+    st.success(generate_greeting(name, gender))
