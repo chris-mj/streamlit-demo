@@ -101,29 +101,6 @@ level = st.slider("Choose a level", 1, 5)
 st.write(f"Your level: {get_level_description(level)}")
 
 
-#practice 3
-# Text input with string processing
-name = st.text_input("Enter your name", "Type here...")
-
-if st.button("Submit"):
-    # Check if the user has typed a real name
-    if name == "Type here..." or name == "":
-        st.warning("Please enter your name first.")
-    else:
-        # Validate: check if name contains only letters and spaces
-        name_letters = name.replace(" ", "")
-        if not name_letters.isalpha():
-            st.error("Name should contain letters only!")
-        else:
-            # Display string method results
-            st.success(f"Hello, {name.title()}!")
-            st.write(f"Uppercase: {name.upper()}")
-            st.write(f"Lowercase: {name.lower()}")
-            st.write(f"Number of characters: {len(name)}")
-            st.write(f"Your name reversed: {name[::-1]}")
-            st.write(f"Starts with 'A': {name.upper().startswith('A')}")
-
-
 #practice 4
 # Text input
 name = st.text_input("Enter your name", "Type here...")
